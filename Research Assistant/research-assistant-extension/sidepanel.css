@@ -1,0 +1,180 @@
+/* Toggle Switch Styles */
+.switch {
+    --input-focus: #fbca1f; /* Yellow for focus */
+    --bg-color: #fff; /* Light background */
+    --bg-color-alt: #666; /* Dark background */
+    --main-color: #323232; /* Dark color for borders */
+    --input-out-of-focus: #ccc; /* Light gray for slider */
+    position: relative;
+    width: 56px; /* Reduced by 20% (original 70px) */
+    height: 28.8px; /* Reduced by 20% (original 36px) */
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 10px; /* Space between Summarize button and toggle */
+}
+
+.toggle {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    box-sizing: border-box;
+    border-radius: 100px;
+    border: 2px solid var(--main-color);
+    box-shadow: 4px 4px var(--main-color);
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--input-out-of-focus);
+    transition: 0.3s;
+}
+
+.slider:before {
+    content: "";
+    box-sizing: border-box;
+    height: 24px; /* Reduced by 20% (original 30px) */
+    width: 24px; /* Reduced by 20% (original 30px) */
+    position: absolute;
+    left: 2px;
+    bottom: 1px;
+    border: 2px solid var(--main-color);
+    border-radius: 100px;
+    background-color: var(--bg-color);
+    transition: 0.3s;
+}
+
+.toggle:checked + .slider {
+    background-color: var(--input-focus);
+}
+
+.toggle:checked + .slider:before {
+    transform: translateX(26px); /* Adjusted for smaller size */
+}
+
+
+
+
+
+.toggle:checked ~ .moon {
+    opacity: 0;
+}
+
+.toggle:checked ~ .sun {
+    opacity: 1;
+}
+
+/* Responsive Layout */
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+body.dark-mode .header h2 {
+    color: #fbca1f;
+}
+
+body.dark-mode .notes textarea {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+body.dark-mode #results {
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+}
+
+body.dark-mode .result-item {
+    background: #333;
+    color: #e0e0e0;
+}
+
+/* Common Styles */
+body {
+    margin: 0;
+    padding: 15px;
+    font-family: 'Menlo', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+.header h2 {
+    margin: 0px;
+}
+
+button {
+    background: #fbca1f;
+    font-family: inherit;
+    padding: 0.6em 1.3em;
+    font-weight: 900;
+    font-size: 16px;
+    border: 3px solid black;
+    border-radius: 0.4em;
+    box-shadow: 0.1em 0.1em;
+    cursor: pointer;
+    color: black;
+}
+
+button:hover {
+    transform: translate(-0.05em, -0.05em);
+    box-shadow: 1px 2px;
+}
+
+button:active {
+    transform: translate(0.05em, 0.05em);
+    box-shadow: 0.05em 0.05em;
+}
+
+.notes textarea {
+    font-family: 'Menlo', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    padding: 10px;
+    height: 200px;
+    border-radius: 4px;
+    resize: vertical;
+    margin-bottom: 10px;
+}
+
+#results {
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.result-item {
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.result-content {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
